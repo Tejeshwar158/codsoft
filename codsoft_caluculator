@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<body bgcolor="cyan"><center>
+<strong><h1>WEB CALCULATOR</h1></strong>
+
+<head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Calculator</title> 
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+<style> 
+#calcu { 
+border: 1px solid black; 
+margin: auto; 
+width: 300px; 
+margin-top: 50px;
+} 
+
+.btn-calculator { 
+width: 100%; 
+padding: 20px 40px; 
+font-size: 24px; 
+font-weight: bold; 
+border-radius: 5px; 
+} 
+
+#result { 
+width: 100%; 
+padding: 20px 30px; 
+font-size: 24px; 
+font-weight: bold; 
+border-radius: 5px; 
+border: 2px solid black; 
+} 
+</style> 
+</head> 
+
+<body> 
+<div class="container">
+<!-- Create table -->
+<table id="calcu" class="table table-bordered"> 
+<tr> 
+<td colspan="3"> 
+<input type="text" id="result" readonly> 
+</td> 
+<td><button class="btn btn-danger btn-calculator" onclick="clearResult()">C</button></td> 
+</tr> 
+
+<tr> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('1')">1</button></td> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('2')">2</button></td> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('3')">3</button></td> 
+<td><button class="btn btn-warning btn-calculator" onclick="appendToResult('/')">/</button></td> 
+</tr> 
+<tr> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('4')">4</button></td> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('5')">5</button></td> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('6')">6</button></td> 
+<td><button class="btn btn-warning btn-calculator" onclick="appendToResult('*')">*</button></td> 
+</tr> 
+<tr> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('7')">7</button></td> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('8')">8</button></td> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('9')">9</button></td> 
+<td><button class="btn btn-warning btn-calculator" onclick="appendToResult('-')">-</button></td> 
+</tr> 
+<tr> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('0')">0</button></td> 
+<td><button class="btn btn-primary btn-calculator" onclick="appendToResult('.')">.</button></td> 
+<td><button class="btn btn-success btn-calculator" onclick="calculateResult()">=</button></td> 
+<td><button class="btn btn-warning btn-calculator" onclick="appendToResult('+')">+</button></td> 
+</tr> 
+</table>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function appendToResult(value) {
+document.getElementById("result").value += value;
+}
+
+function calculateResult() {
+try {
+document.getElementById("result").value = eval(document.getElementById("result").value);
+} catch (error) {
+document.getElementById("result").value = "Error";
+}
+}
+
+function clearResult() {
+document.getElementById("result").value = "";
+}
+</script>
+</body> 
+
+</html>
